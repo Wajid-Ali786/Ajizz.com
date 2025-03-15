@@ -1,0 +1,409 @@
+:root {
+  --primary-color: #4C2A85;   /* Deep Royal Purple - More Luxurious */
+  --secondary-color: #C9A227; /* Deeper Gold - More Premium */
+  --bg-color: #FAF5EF;        /* Soft Champagne Beige - Warmer & Softer */
+  --text-color: #1A1A1A;      /* Timeless Black for Readability */
+}
+
+
+body {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 18px; /* Slightly larger for a premium feel */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.8;
+}
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 1px; /* Adds elegance */
+}
+
+/* Hero Section */
+.hero {
+  background: url('../../src/assets/images/hero-background.jpg') center center/cover no-repeat;
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+/* Section Titles */
+.section-title {
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Darker overlay */
+  backdrop-filter: blur(0px); /* Soft luxury blur */
+  z-index: 1;
+}
+
+/* Featured Products */
+.featured-products img {
+  width: 100%;
+  height: auto;
+}
+/* Footer */
+/* Footer Styling */
+.site-footer {
+  background: linear-gradient(135deg, #2e2b47, #1a1a2e); /* Deep Luxury Gradient */
+  color: #ddd;
+  padding: 60px 0;
+  font-family: 'Playfair Display', serif;
+  border-top: 2px solid #d4af37; /* Gold Accent */
+}
+
+.site-footer h5 {
+  color: #d4af37; /* Gold for section headers */
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.site-footer p {
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-contact-form input,
+.footer-contact-form textarea {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #d4af37; /* Gold border for inputs */
+}
+
+.footer-contact-form textarea {
+  resize: none;
+}
+
+.footer-contact-form button {
+  background-color: #d4af37; /* Gold */
+  border: none;
+  color: #1a1a1a;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.footer-contact-form button:hover {
+  background-color: #e6c368; /* Lighter Gold */
+}
+
+/* Contact Links Icons */
+.site-footer i {
+  color: #d4af37; /* Gold icons */
+  margin-right: 8px;
+}
+
+/* Footer Bottom Copyright */
+.site-footer .text-center p {
+  color: #bbb;
+  font-size: 14px;
+}
+
+/* Hover Effects on Footer Links */
+.site-footer a:hover {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .site-footer {
+    padding: 40px 20px;
+  }
+
+  .footer-contact-form input,
+  .footer-contact-form textarea,
+  .footer-contact-form button {
+    width: 100%;
+  }
+}
+
+/* back 
+      to 
+          top */
+  
+  /* Back to Top Button Styling */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #d4af37; /* Gold color */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.back-to-top-btn:hover {
+  background-color: #e6c368; /* Lighter Gold on Hover */
+  cursor: pointer;
+}
+
+.back-to-top-btn i {
+  margin-top: 5px;
+}
+
+
+/* 
+  nav
+      bar 
+        settings
+         */
+/* Elegant Perfume Store Navbar */
+.luxury-navbar {
+  background: linear-gradient(90deg, #2D1A41, #3B235A); /* Deepened Luxury Gradient */
+  padding: 15px 0;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 3px solid var(--secondary-color);
+  border-bottom: 2px solid #d4af37; /* Gold underline */
+}
+
+/* Navbar Brand (Store Name) */
+.luxury-navbar .navbar-brand {
+  color: #d4af37; /* Gold Color */
+  font-size: 24px;
+  font-family: 'Playfair Display', serif; /* Elegant font */
+  transition: color 0.3s;
+}
+
+.luxury-navbar .navbar-brand:hover {
+  color: #fff;
+}
+
+/* Navbar Links */
+.luxury-navbar .navbar-nav .nav-link {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Hover & Active Effects */
+.luxury-navbar .navbar-nav .nav-link:hover,
+.luxury-navbar .navbar-nav .nav-link.active {
+  color: #d4af37; /* Gold Effect */
+}
+
+/* Underline Animation */
+.luxury-navbar .navbar-nav .nav-link::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0%;
+  background: #d4af37;
+  transition: width 0.3s ease-in-out;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.luxury-navbar .navbar-nav .nav-link:hover::after,
+.luxury-navbar .navbar-nav .nav-link.active::after {
+  width: 50%;
+}
+
+/* Mobile Menu */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+
+/*  Crousel setting */
+
+  /*  Crousel setting */
+
+ /* Ensure images are fixed height and cover the area */
+ .slider img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  padding: 20px;
+  border-radius: 50px;
+}
+.slick-slide {
+  /* Optional: adjust slide spacing if needed */
+  padding: 1px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h2.section-title {
+  margin-bottom: 20px;
+}
+
+
+/* 
+    styling   
+          for   
+                featured 
+                        produts */
+.product-image {
+  height: 250px; /* Set a fixed height */
+  object-fit: cover; /* Crop image to fit */
+  border-top-left-radius: 10px;
+  padding: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card {
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(201, 162, 39, 0.5); /* Gold glow */
+}
+
+/*  
+  button
+    color
+      and
+          hover  effects */
+
+/* Primary Button - Rich Gold */
+.btn-primary {
+  background: linear-gradient(135deg, #C9A227, #D4AF37); /* Gold Gradient */
+  border: none;
+  color: #1A1A1A; /* Black text for contrast */
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #D4AF37, #E6C368); /* Brighter Gold on Hover */
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px rgba(201, 162, 39, 0.5); /* Gold glow effect */
+}
+
+/* Outline Button - Soft Gold Glow */
+.btn-outline-dark {
+  border: 2px solid var(--secondary-color); /* Gold border */
+  color: var(--secondary-color);
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-dark:hover {
+  background: var(--secondary-color);
+  color: #1A1A1A;
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px rgba(201, 162, 39, 0.5);
+}
+
+
+
+
+/* 
+    styling   
+          for   
+                shop by 
+                        Category */
+
+#categories {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 60px 0;
+}
+
+.category-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s;
+  border: 2px solid transparent;
+}
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--secondary-color); /* Gold border effect */
+}
+
+
+.category-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.category-card:hover .overlay {
+  opacity: 1;
+}
+
+.category-title {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.btn-primary {
+ 
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* .btn-primary:hover {
+  background-color: #e64a19;
+} */
+
+
