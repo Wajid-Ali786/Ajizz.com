@@ -52,45 +52,51 @@ document.addEventListener("DOMContentLoaded", function () {
 // //   <!-- JavaScript to Clone Items for Multi-Item Carousel -->
 // //  <!-- jQuery -->
 // <!-- Slick Carousel JS -->
-  $(document).ready(function(){
-    $('.slider').slick({
-      slidesToShow: 3,          
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 0,         // No delay between slides
-      speed: 5000,              // Duration of the transition (ms)
-      cssEase: 'linear',        // Ensures smooth, constant motion
-      infinite: true,
-      arrows: true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1   // 1 image on mobile devices
-          }
+$(document).ready(function(){
+  $('.slider').slick({
+    slidesToShow: 3,          
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,         // No delay between slides
+    speed: 5000,              // Transition duration (ms)
+    cssEase: 'linear',        // Ensures smooth, continuous motion
+    infinite: true,
+    arrows: true,             // Enables arrow navigation
+    pauseOnHover: false,      // We'll handle pause/resume manually
+    draggable: true,          // Enable dragging/swiping
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1   // 1 image on mobile devices
         }
-      ]
-    });
-
-    // Immediately stop on hover
-    $('.slider').on('mouseenter', function() {
-      $(this).slick('slickPause');  // Pause Slick autoplay
-      $(this).find('.slick-track').css({
-        'transition': 'none', // Instantly stop movement
-        'animation-play-state': 'paused'
-      });
-    });
-
-    // Immediately resume on mouse leave
-    $('.slider').on('mouseleave', function() {
-      $(this).find('.slick-track').css({
-        'transition': 'transform 0s linear', // Instantly start movement
-        'animation-play-state': 'running'
-      });
-      $(this).slick('slickPlay');  // Resume Slick autoplay
-    });
+      }
+    ]
   });
 
+  // Custom hover pause/resume logic using a dragging flag
+  $('.slider').on('mouseenter', function() {
+    if (!$(this).hasClass('dragging')) {
+      $(this).slick('slickPause');
+    }
+  });
+
+  $('.slider').on('mouseleave', function() {
+    if (!$(this).hasClass('dragging')) {
+      $(this).slick('slickPlay');
+    }
+  });
+
+  // Add a 'dragging' flag when the user clicks and holds (mousedown)
+  $('.slider').on('mousedown', function() {
+    $(this).addClass('dragging');
+  });
+
+  // Remove the 'dragging' flag when the user releases (mouseup) or leaves the slider
+  $('.slider').on('mouseup mouseleave', function() {
+    $(this).removeClass('dragging');
+  });
+});
 
 /* back 
       to 
