@@ -22,7 +22,7 @@ h1, h2, h3, h4 {
 
 /* Hero Section */
 .hero {
-  background: url('../../../src/assets/images/hero-background.jpg') center center/cover no-repeat;
+  background: url('../../src/assets/images/hero-background.jpg') center center/cover no-repeat;
   position: relative;
   height: 300px;
   display: flex;
