@@ -49,9 +49,13 @@
     margin-top: 5px;
   }
 }
-/* Improved Navbar styling */
-.navbar {
+
+/*******************************************
+  BASE NAVBAR STYLES
+********************************************/
+.custom-navbar {
   background-color: #000;
+
   padding: 0.5rem 1rem;
 }
 
@@ -61,7 +65,6 @@
   align-items: center;
 }
 
-/* Logo styling */
 .navbar-brand img {
   height: 40px;
   width: 40px;
@@ -73,18 +76,21 @@
   color: #ebebec;
   margin: 0 10px;
   text-transform: capitalize;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
   color: #fff;
-  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
-/* Mobile Toggle Button styling */
+/*******************************************
+  TOGGLER ICONS
+********************************************/
 .navbar-toggler {
   border: none;
-  background-color: transparent; /* or choose a color if needed */
+  background-color: transparent;
   padding: 0.5rem;
   transition: background-color 0.3s ease;
 }
@@ -94,26 +100,142 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Custom Hamburger / X Icon */
 .navbar-toggler-icon {
-  background-image: url('../images/toggle.png'); /* replace with your custom icon */
+  background-image: none !important;
   width: 24px;
   height: 24px;
-  filter: invert(1); /* ensures icon visibility on dark backgrounds */
+  display: inline-block;
+  position: relative;
+}
+
+/* Hamburger lines (collapsed state) */
+.navbar-toggler.collapsed .navbar-toggler-icon::before,
+.navbar-toggler.collapsed .navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon::before {
+  top: 6px;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon::after {
+  top: 16px;
+}
+
+/* "X" Icon (expanded state) */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before,
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+
+  transition: transform 0.3s ease;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+}
+
+/*******************************************
+  MOBILE VIEW: Dropdown Panel Under Navbar
+********************************************/
+@media (max-width: 991px) {
+  /* Position collapse panel below navbar */
+  .custom-navbar .container {
+    position: relative;
+  }
+  
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+
+  .navbar-collapse.show {
+    max-height: 500px; /* Adjust this value based on content height */
+    opacity: 1;
+  }
+
+  /* Mobile nav links in column */
+  .navbar-nav {
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0.5rem 0;
+  }
+
+  .navbar-nav .nav-link {
+    color: #000 !important;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: #f2f2f2;
+    color: #333 !important;
+  }
+
+  /* Right icons become black */
+  .navbar-nav i {
+    color: #000 !important;
+  }
+
+  /* Close button styling */
+  .close-collapse {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #000;
+    z-index: 1;
+  }
 }
 
 
   /* Hero section styling */
- /* Hero section styling */
+/* Hero Section */
 .hero {
   position: relative;
+  height: 60vh; /* Full screen height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Adjust as needed */
   color: #fff;
+  text-align: center;
 }
 
 .hero::before {
@@ -123,36 +245,144 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4); /* Overlay */
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
 }
 
+/* Hero Content */
 .hero-content {
   position: relative;
-  z-index: 1;
-  margin-left: 10%;
-  max-width: 400px;
-  text-align: left;
+  z-index: 2;
+  max-width: 600px;
+  padding: 20px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
+  animation: fadeInUp 1s ease-in-out;
 }
 
 .hero-content p {
   font-size: 1.2rem;
-  margin: 20px 0;
+  margin: 15px 0;
+  animation: fadeInUp 1.5s ease-in-out;
 }
 
+/* Button */
 .btn-hero {
   background-color: transparent;
   border: 2px solid #fff;
   color: #fff;
-  padding: 0.7rem 1.5rem;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-hero:hover {
   background-color: #fff;
   color: #000;
+}
+
+/* Carousel Controls */
+.carousel-control-prev, .carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-item {
+  transition: opacity 1.5s ease-in-out;
+}
+
+
+/* <!--     Features         Products    -->
+<!--     Features         Products    -->
+<!--     Features         Products    --> */
+
+
+#featured-products h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+#featured-products .shadow-sm {
+  border-radius: 12px;
+  padding: 20px;
+}
+
+#featured-products img {
+  border-radius: 10px;
+
+}
+
+#featured-products p {
+  font-size: 1rem;
+  color: #444;
+}
+
+#featured-products .font-weight-bold {
+  color: #000;
+}
+
+#featured-products strong {
+  color: #222;
+}
+
+
+
+.footer {
+  background-color: #000; /* or a very dark gray, #111 */
+  position: relative;
+  /* Optionally add a top border or accent */
+  /* border-top: 1px solid #333; */
+}
+
+/* Footer Links */
+.footer-link {
+  color: #aaa; /* subtle gray */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-link:hover {
+  color: #fff;
+}
+
+/* Email Input */
+.footer-input {
+  background-color: transparent;
+  border: 1px solid #777;
+  color: #fff;
+}
+.footer-input::placeholder {
+  color: #aaa;
+}
+.footer-input:focus {
+  box-shadow: none;
+  border-color: #fff;
+}
+
+/* Social Icons */
+.social-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: rgb(255, 255, 255);
+}
+.social-icon:hover {
+  color: #bfa158; /* example gold color on hover */
+  transform: translateY(-3px);
 }
