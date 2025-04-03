@@ -1,262 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Featured Collection</title>
-  <!-- Bootstrap CSS -->
-   <!-- Bootstrap 5 CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-<!-- AOS (Animation Library) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
-   <!-- Bootstrap JS (CDN) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-   <!-- Font Awesome (Optional for Icons) -->
-   <link
-   rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
- />
-
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <!-- AOS (Animation Library) CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    /* Fix card and image sizes */
+    /* Example Custom Styles */
     .card-img-top {
-      height: 200px; /* fixed height */
+      height: 200px;
       object-fit: cover;
     }
   </style>
-<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <!-- Top Bar -->
+  <div class="top-bar py-2">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <!-- Left: Social Icons -->
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <!-- Center: Delivery Info -->
+      <div class="delivery-text text-center">
+        Standard Delivery in <strong>3-4 Business Days</strong>
+      </div>
+      <!-- Right: User Icons -->
+      <div class="user-icons">
+        <a href="#" class="icon"><i class="fas fa-user"></i></a>
+        <a href="javascript:void(0);" class="icon" onclick="showMiniCart();">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+              </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg custom-navbar position-relative">
+    <div class="container">
+      <!-- Brand/Logo -->
+      <a class="navbar-brand" href="#">
+        <img tabindex="0" src="assets/images/logo.png" alt="Logo" />
+        Ajizz Scents
+      </a>
+      <!-- Mobile Toggle Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapsible Nav Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Mobile Close Button (visible on mobile only) -->
+        <button class="mobile-close d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-label="Close">&times;</button>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Fragrances</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Chocolate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Our Outlets</a>
+          </li>
+        </ul>
+        <!-- Optional: Right Icons (visible on larger screens) -->
+        <ul class="navbar-nav d-none d-lg-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+          </li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" href="javascript:void(0);" onclick="showMiniCart();">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cartItemCount" class="badge bg-danger" style="position: absolute; bottom: 0; right: 0; font-size: 0.7rem;">0</span>
+            </a>
+          </li>
+                    
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="hero" style="background-image: url('assets/images/featured-product-2.jpg');">
+          <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+              <h1>Ajizz Scents SIGNATURE</h1>
+              <p>Experience the ultimate fragrance.</p>
+              <a href="#" class="btn btn-hero">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="hero" style="background-image: url('assets/images/featured-product-3.jpg');">
+          <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+              <h1>Luxury Fragrances</h1>
+              <p>Discover your signature scent today.</p>
+              <a href="#" class="btn btn-hero">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <div class="hero" style="background-image: url('assets/images/featured-product-2.jpg');">
+                <div class="container">
+                  <div class="hero-content" data-aos="fade-up">
+                    <h1>Slide 3 Luxury Fragrances</h1>
+                    <p>Discover your signature scent today.</p>
+                    <a href="#" class="btn btn-hero">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </section>
+
+
+  <!-- Your other content goes here... -->
+   
+  <!-- Your other content goes here... -->
+   
+  <!-- Your other content goes here... -->
+
   
-<!-- Top Bar -->
-<div class="top-bar py-2">
-  <div class="container d-flex justify-content-between align-items-center flex-wrap">
-    <!-- Left: Social Icons -->
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-tiktok"></i></a>
+ <!-- Featured Collection Section -->
+<section id="featured-collection" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Featured Collection</h2>
+    <div class="row">
+      <!-- Product Card 1 -->
+      <!-- Product Card Example -->
+<div class="col-6 col-lg-3 mb-4">
+  <div class="card">
+    <div class="card-img-container">
+      <img tabindex="0" src="assets/images/hayya-women-5.jpg" class="card-img-top default" alt="Product 1">
+      <img tabindex="0" src="assets/images/featured-product-2.jpg" class="card-img-top hover" alt="Product 1 Hover">
     </div>
-    
-    <!-- Center: Delivery Info -->
-    <div class="delivery-text text-center">
-      Standard Delivery in <strong>3-4 Business Days</strong>
-    </div>
-    
-    <!-- Right: User Icons -->
-    <div class="user-icons">
-      <a href="#" class="icon"><i class="fas fa-user"></i></a>
-      <a href="#" class="icon"><i class="fas fa-shopping-cart"></i></a>
+    <div class="card-body text-center">
+      <h5 class="card-title">Product 1</h5>
+      <p class="card-text">$29.99</p>
+      <button 
+        class="btn btn-primary add-to-cart" 
+        data-id="1" 
+        data-name="Product 1" 
+        data-price="29.99" 
+        data-img="assets/images/hayya-women-5.jpg"
+      >
+        <!-- The text -->
+        <span class="btn-text">Add to Cart 🛒</span>
+        <!-- The spinner (hidden by default) -->
+        <div 
+          class="spinner-border spinner-border-sm d-none" 
+          role="status" 
+          style="margin-left: .5rem;"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
     </div>
   </div>
 </div>
 
 
- <!-- Navbar -->
-<!-- Enhanced Navbar -->
-<nav class="navbar navbar-expand-lg custom-navbar">
-  <div class="container position-relative">
-    <!-- Brand/Logo -->
-    <a class="navbar-brand" href="#">
-      <img src="assets/images/logo.png" alt="Logo" />
-      Ajizz Scents
-    </a>
-    
-    <!-- Mobile Toggle Button -->
-    <button 
-      class="navbar-toggler collapsed" 
-      type="button" 
-      data-bs-toggle="collapse"
-      data-bs-target="#mainNavbar" 
-      aria-controls="mainNavbar" 
-      aria-expanded="false" 
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <!-- Collapsible Nav Links -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <!-- Close button for mobile view -->
+
+      <!-- Product Card 2 -->
+      <!-- Product Card Example -->
+<div class="col-6 col-lg-3 mb-4">
+  <div class="card">
+    <div class="card-img-container">
+      <img tabindex="0" src="assets/images/Hijab for women1.jpg" class="card-img-top default" alt="Product 2">
+      <img tabindex="0" src="assets/images/featured-product-2.jpg" class="card-img-top hover" alt="Product 2 Hover">
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title">Product 2</h5>
+      <p class="card-text">$29.99</p>
       <button 
-        class="btn-close close-collapse d-lg-none text-white" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#mainNavbar" 
-        aria-label="Close menu"
-      ></button>
-
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Best Seller</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Fragrances</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Chocolate</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Our Outlets</a>
-        </li>
-      </ul>
-      <!-- Right Icons -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
-        </li>
-      </ul>
+        class="btn btn-primary add-to-cart" 
+        data-id="2" 
+        data-name="Product 2" 
+        data-price="29.99" 
+        data-img="assets/images/hayya-women-5.jpg"
+      >
+        <!-- The text -->
+        <span class="btn-text">Add to Cart 🛒</span>
+        <!-- The spinner (hidden by default) -->
+        <div 
+          class="spinner-border spinner-border-sm d-none" 
+          role="status" 
+          style="margin-left: .5rem;"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
     </div>
   </div>
-</nav>
+</div>
+    
+      <!-- Add more product cards as needed -->
+      
 
-
-
-<!-- Hero Section -->
-<section id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-inner">
-    <!-- Slide 1 -->
-    <div class="carousel-item active">
-      <div class="hero" style="background-image: url('assets/images/featured-product-2.jpg');">
-        <div class="container">
-          <div class="hero-content" data-aos="fade-up">
-            <h1>Ajizz Scents SIGNATURE</h1>
-            <p>Experience the ultimate fragrance.</p>
-            <a href="#" class="btn btn-hero">Buy Now</a>
+      
+      <!-- Product Card 3 -->
+      <div class="col-6 col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-img-container">
+            <img tabindex="0" src="assets/images/hayya-women-4.jpg" class="card-img-top default" alt="Product 3">
+            <img tabindex="0" src="assets/images/hayya-women-5-hover.jpg" class="card-img-top hover" alt="Product 3 Hover">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Product 3</h5>
+            <p class="card-text">$29.99</p>
+            <button 
+              class="btn btn-primary add-to-cart" 
+              data-id="3" 
+              data-name="Product 3" 
+              data-price="29.99" 
+              data-img="assets/images/hayya-women-4.jpg"
+            >
+              <!-- The text -->
+              <span class="btn-text">Add to Cart 🛒</span>
+              <!-- The spinner (hidden by default) -->
+              <div 
+                class="spinner-border spinner-border-sm d-none" 
+                role="status" 
+                style="margin-left: .5rem;"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
           </div>
         </div>
       </div>
-    </div>
+      
 
-    <!-- Slide 2 -->
-    <div class="carousel-item">
-      <div class="hero" style="background-image: url('assets/images/featured-product-3.jpg');">
-        <div class="container">
-          <div class="hero-content" data-aos="fade-up">
-            <h1>Luxury Fragrances</h1>
-            <p>Discover your signature scent today.</p>
-            <a href="#" class="btn btn-hero">Shop Now</a>
+
+      
+      <!-- Product Card 4 -->
+      <!-- Product Card Example -->
+      <div class="col-6 col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-img-container">
+            <img tabindex="0" src="assets/images/featured-product-1.jpg" class="card-img-top default" alt="Product 4">
+            <img tabindex="0" src="assets/images/hayya-women-5-hover.jpg" class="card-img-top hover" alt="Product 4 Hover">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Product 4</h5>
+            <p class="card-text">$29.99</p>
+            <button 
+              class="btn btn-primary add-to-cart" 
+              data-id="4" 
+              data-name="Product 4" 
+              data-price="29.99" 
+              data-img="assets/images/featured-product-1.jpg"
+            >
+              <!-- The text -->
+              <span class="btn-text">Add to Cart 🛒</span>
+              <!-- The spinner (hidden by default) -->
+              <div 
+                class="spinner-border spinner-border-sm d-none" 
+                role="status" 
+                style="margin-left: .5rem;"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
           </div>
         </div>
       </div>
+      
+
+
+
+      
+      <!-- Product Card 5 -->
+      <!-- Product Card Example -->
+      <div class="col-6 col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-img-container">
+            <img tabindex="0" src="assets/images/featured-product-3.jpg" class="card-img-top default" alt="Product 5">
+            <img tabindex="0" src="assets/images/hayya-women-5-hover.jpg" class="card-img-top hover" alt="Product 5 Hover">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Product 5</h5>
+            <p class="card-text">$29.99</p>
+            <button 
+              class="btn btn-primary add-to-cart" 
+              data-id="5" 
+              data-name="Product 5" 
+              data-price="29.99" 
+              data-img="assets/images/featured-product-3.jpg"
+            >
+              <!-- The text -->
+              <span class="btn-text">Add to Cart 🛒</span>
+              <!-- The spinner (hidden by default) -->
+              <div 
+                class="spinner-border spinner-border-sm d-none" 
+                role="status" 
+                style="margin-left: .5rem;"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+
+
+      
+      <!-- Product Card 6 -->
+      <!-- Product Card Example -->
+      <div class="col-6 col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-img-container">
+            <img tabindex="0" src="assets/images/hayya-women-4.jpg" class="card-img-top default" alt="Product 6">
+            <img tabindex="0" src="assets/images/hayya-women-5-hover.jpg" class="card-img-top hover" alt="Product 6 Hover">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Product 6</h5>
+            <p class="card-text">$29.99</p>
+            <button 
+              class="btn btn-primary add-to-cart" 
+              data-id="6" 
+              data-name="Product 6" 
+              data-price="29.99" 
+              data-img="assets/images/hayya-women-4.jpg"
+            >
+              <!-- The text -->
+              <span class="btn-text">Add to Cart 🛒</span>
+              <!-- The spinner (hidden by default) -->
+              <div 
+                class="spinner-border spinner-border-sm d-none" 
+                role="status" 
+                style="margin-left: .5rem;"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+
+
+
+      
+      <!-- Product Card 7 -->
+      <div class="col-6 col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-img-container">
+            <img tabindex="0" src="assets/images/hero-background.jpg" class="card-img-top default" alt="Product 7">
+            <img tabindex="0" src="assets/images/hayya-women-5-hover.jpg" class="card-img-top hover" alt="Product 7 Hover">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Product 7</h5>
+            <p class="card-text">$29.99</p>
+            <button 
+              class="btn btn-primary add-to-cart" 
+              data-id="7" 
+              data-name="Product 7" 
+              data-price="29.99" 
+              data-img="assets/images/hero-background.jpg"
+            >
+              <!-- The text -->
+              <span class="btn-text">Add to Cart 🛒</span>
+              <!-- The spinner (hidden by default) -->
+              <div 
+                class="spinner-border spinner-border-sm d-none" 
+                role="status" 
+                style="margin-left: .5rem;"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+
+
+      
+      <!-- Product Card 8 -->
+      <div class="col-6 col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-img-container">
+            <img tabindex="0" src="assets/images/Hijab for women3.jpg" class="card-img-top default" alt="Product 8">
+            <img tabindex="0" src="assets/images/hayya-women-5-hover.jpg" class="card-img-top hover" alt="Product 8 Hover">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Product 8</h5>
+            <p class="card-text">$29.99</p>
+            <button 
+              class="btn btn-primary add-to-cart" 
+              data-id="8" 
+              data-name="Product 8" 
+              data-price="29.99" 
+              data-img="assets/images/Hijab for women3.jpg"
+            >
+              <!-- The text -->
+              <span class="btn-text">Add to Cart 🛒</span>
+              <!-- The spinner (hidden by default) -->
+              <div 
+                class="spinner-border spinner-border-sm d-none" 
+                role="status" 
+                style="margin-left: .5rem;"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      
+            <!-- Product Card 9 -->
+      <!-- Product Card Example -->
+      <div class="col-6 col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-img-container">
+            <img tabindex="0" src="assets/images/hayya-women-6.jpg" class="card-img-top default" alt="Product 9">
+            <img tabindex="0" src="assets/images/hayya-women-5-hover.jpg" class="card-img-top hover" alt="Product 9 Hover">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Product 9</h5>
+            <p class="card-text">$29.99</p>
+            <button 
+              class="btn btn-primary add-to-cart" 
+              data-id="9" 
+              data-name="Product 9" 
+              data-price="29.99" 
+              data-img="assets/images/hayya-women-6.jpg"
+            >
+              <!-- The text -->
+              <span class="btn-text">Add to Cart 🛒</span>
+              <!-- The spinner (hidden by default) -->
+              <div 
+                class="spinner-border spinner-border-sm d-none" 
+                role="status" 
+                style="margin-left: .5rem;"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+
     </div>
   </div>
-
-  <!-- Carousel Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  </button>
 </section>
-<script>
-gsap.from(".hero-content h1", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
-gsap.from(".hero-content p", { opacity: 0, y: 50, duration: 1, delay: 0.8 });
-gsap.from(".btn-hero", { opacity: 0, scale: 0.8, duration: 1, delay: 1.2 });
 
-</script>
 
-  <!-- Include Bootstrap JS (jQuery and Popper.js must be loaded first) -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- MINI CART OFF-CANVAS -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="miniCartOffcanvas" aria-labelledby="miniCartLabel">
+  <div class="offcanvas-header">
+    <h5 id="miniCartLabel">Your Cart</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
   
+  <!-- Off-canvas body where items will be displayed -->
+  <div class="offcanvas-body" id="miniCartContent">
+    <p>Your cart is empty.</p>
+  </div>
   
-  
-  
-  <!-- Featured Collection Section -->
-  <section id="featured-collection" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Featured Collection</h2>
-      <div class="row">
-        <!-- Example Product Card -->
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="assets/images/hayya-women-5.jpg" class="card-img-top" alt="Product 1">
-            <div class="card-body text-center">
-              <h5 class="card-title">Product 1</h5>
-              <p class="card-text">$29.99</p>
-            </div>
-          </div>
-        </div>
-        <!-- Repeat cards as needed -->
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="assets/images/featured-product-3.jpg" class="card-img-top" alt="Product 2">
-            <div class="card-body text-center">
-              <h5 class="card-title">Product 2</h5>
-              <p class="card-text">$39.99</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="assets/images/featured-product-2.jpg" class="card-img-top" alt="Product 3">
-            <div class="card-body text-center">
-              <h5 class="card-title">Product 3</h5>
-              <p class="card-text">$49.99</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="assets/images/featured-product-1.jpg" class="card-img-top" alt="Product 4">
-            <div class="card-body text-center">
-              <h5 class="card-title">Product 4</h5>
-              <p class="card-text">$59.99</p>
-            </div>
-          </div>
-        </div>
-        <!-- Add additional cards as needed -->
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="assets/images/featured-product-1.jpg" class="card-img-top" alt="Product 4">
-            <div class="card-body text-center">
-              <h5 class="card-title">Product 4</h5>
-              <p class="card-text">$59.99</p>
-            </div>
-          </div>
-        </div>
+  <!-- Footer for total price and checkout -->
+  <div class="p-3 border-top">
+    <h6>Estimated Total: $<span id="miniCartTotal">0.00</span></h6>
+    <button class="btn btn-primary w-100">Check Out</button>
+  </div>
+</div>
 
-
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="assets/images/featured-product-1.jpg" class="card-img-top" alt="Product 4">
-            <div class="card-body text-center">
-              <h5 class="card-title">Product 4</h5>
-              <p class="card-text">$59.99</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="assets/images/featured-product-1.jpg" class="card-img-top" alt="Product 4">
-            <div class="card-body text-center">
-              <h5 class="card-title">Product 4</h5>
-              <p class="card-text">$59.99</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  
+<script src="assets/js/add-to-cart.js"  ></script>
 
 <!--     Features         Products    -->
 <!--     Features         Products    -->
@@ -270,7 +516,7 @@ gsap.from(".btn-hero", { opacity: 0, scale: 0.8, duration: 1, delay: 1.2 });
     <div class="row align-items-center">
       <!-- Left: Product Image -->
       <div class="col-md-6">
-        <img src="assets/images/featured-product-1.jpg" class="img-fluid rounded" alt="Product Image">
+        <img tabindex="0" src="assets/images/featured-product-1.jpg" class="img-fluid rounded" alt="Product Image">
       </div>
 
       <!-- Right: Product Details -->
@@ -323,7 +569,7 @@ gsap.from(".btn-hero", { opacity: 0, scale: 0.8, duration: 1, delay: 1.2 });
 
       <!-- Right: Product Image -->
       <div class="col-md-6">
-        <img 
+        <img tabindex="0" 
           src="assets/images/Signature for men1.jpg" 
           class="img-fluid rounded" 
           alt="Product Image"
@@ -336,7 +582,7 @@ gsap.from(".btn-hero", { opacity: 0, scale: 0.8, duration: 1, delay: 1.2 });
 <div class="row align-items-center">
   <!-- Left: Product Image -->
   <div class="col-md-6">
-    <img src="assets/images/Hijab for women2.jpg" class="img-fluid rounded" alt="Product Image">
+    <img tabindex="0" src="assets/images/Hijab for women2.jpg" class="img-fluid rounded" alt="Product Image">
   </div>
 
   <!-- Right: Product Details -->
@@ -389,7 +635,7 @@ gsap.from(".btn-hero", { opacity: 0, scale: 0.8, duration: 1, delay: 1.2 });
 
   <!-- Right: Product Image -->
   <div class="col-md-6">
-    <img 
+    <img tabindex="0" 
       src="assets/images/hayya-women-6.jpg" 
       class="img-fluid rounded" 
       alt="Product Image"
@@ -401,117 +647,69 @@ gsap.from(".btn-hero", { opacity: 0, scale: 0.8, duration: 1, delay: 1.2 });
 
   </div>
 </section>
-
-<footer class="footer  text-white pt-5">
-  <div class="container">
-    <!-- Quick Links Title -->
-    <div class="row justify-content-center text-center mb-4">
-      <div class="col-auto">
-        <h5 class="font-weight-bold">Quick links</h5>
+  <!-- Footer -->
+  <footer class="footer text-white pt-5">
+    <div class="container">
+      <!-- Quick Links -->
+      <div class="row justify-content-center text-center mb-4">
+        <div class="col-auto">
+          <h5 class="font-weight-bold">Quick links</h5>
+        </div>
       </div>
-    </div>
-
-    <!-- Quick Links List -->
-    <div class="row justify-content-center text-center mb-4">
-      <div class="col-auto">
-        <ul class="list-inline">
-          <li class="list-inline-item mx-2">
-            <a href="#" class="footer-link">About Us</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a href="#" class="footer-link">Our Outlets</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a href="#" class="footer-link">Privacy Policy</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a href="#" class="footer-link">Refund and Return Policy</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a href="#" class="footer-link">Terms &amp; Conditions</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a href="#" class="footer-link">Shipping Policy</a>
-          </li>
-          <li class="list-inline-item mx-2">
-            <a href="#" class="footer-link">FAQs</a>
-          </li>
-        </ul>
+      <div class="row justify-content-center text-center mb-4">
+        <div class="col-auto">
+          <ul class="list-inline">
+            <li class="list-inline-item mx-2"><a href="#" class="footer-link">About Us</a></li>
+            <li class="list-inline-item mx-2"><a href="#" class="footer-link">Our Outlets</a></li>
+            <li class="list-inline-item mx-2"><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li class="list-inline-item mx-2"><a href="#" class="footer-link">Refund and Return Policy</a></li>
+            <li class="list-inline-item mx-2"><a href="#" class="footer-link">Terms &amp; Conditions</a></li>
+            <li class="list-inline-item mx-2"><a href="#" class="footer-link">Shipping Policy</a></li>
+            <li class="list-inline-item mx-2"><a href="#" class="footer-link">FAQs</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-
-    <!-- Subscription Prompt -->
-    <div class="row justify-content-center text-center mb-3">
-      <div class="col-auto">
-        <h6 class="mb-0">Join Us For Latest Updates &amp; Discounts</h6>
+      <!-- Subscription Prompt -->
+      <div class="row justify-content-center text-center mb-3">
+        <div class="col-auto"><h6 class="mb-0">Join Us For Latest Updates &amp; Discounts</h6></div>
       </div>
-    </div>
-
-    <!-- Email Input & Button -->
-    <div class="row justify-content-center mb-4">
-      <div class="col-md-4 col-sm-8">
-        <div class="input-group">
-          <input
-            type="email"
-            class="form-control footer-input"
-            placeholder="Email"
-            aria-label="Email"
-            aria-describedby="subscribe-btn"
-          />
-          <div class="input-group-append">
-            <button
-              class="btn btn-outline-light"
-              type="button"
-              id="subscribe-btn"
-            >
-              <i class="fas fa-arrow-right"></i>
-            </button>
+      <!-- Email Input -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-4 col-sm-8">
+          <div class="input-group">
+            <input type="email" class="form-control footer-input" placeholder="Email" aria-label="Email" />
+            <button class="btn btn-outline-light" type="button" id="subscribe-btn"><i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Social Icons -->
-    <div class="row justify-content-center mb-4">
-      <div class="col-auto">
-        <a href="#" class="mx-2 social-icon">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="mx-2  social-icon">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="mx-2 social-icon">
-          <i class="fab fa-tiktok"></i>
-        </a>
+      <!-- Social Icons -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-auto">
+          <a href="#" class="mx-2 social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="mx-2 social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="mx-2 social-icon"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="row justify-content-center text-center">
+        <div class="col-auto"><p class="mb-0">&copy; 2025, Ajizz Scent</p></div>
       </div>
     </div>
+  </footer>
 
-    <!-- Copyright -->
-    <div class="row justify-content-center text-center">
-      <div class="col-auto">
-        <p class="mb-0">&copy; 2025, Ajizz Scent</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-
-  <!-- jQuery and Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Bootstrap 5 JS & Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- AOS Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-<!-- GSAP Animation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script>
-  AOS.init(); // Initialize AOS animations
-</script>
-
+  <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- GSAP Animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    // Initialize AOS animations
+    AOS.init();
+    // Example GSAP animations
+    gsap.from(".hero-content h1", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+    gsap.from(".hero-content p", { opacity: 0, y: 50, duration: 1, delay: 0.8 });
+    gsap.from(".btn-hero", { opacity: 0, scale: 0.8, duration: 1, delay: 1.2 });
+  </script>
 </body>
 </html>

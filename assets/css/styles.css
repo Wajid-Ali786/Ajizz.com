@@ -50,178 +50,70 @@
   }
 }
 
-/*******************************************
-  BASE NAVBAR STYLES
-********************************************/
-.custom-navbar {
-  background-color: #000;
-
-  padding: 0.5rem 1rem;
-}
-
-.navbar-brand {
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-brand img {
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
-  margin-right: 8px;
-}
-
-.navbar-nav .nav-link {
-  color: #ebebec;
-  margin: 0 10px;
-  text-transform: capitalize;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-/*******************************************
-  TOGGLER ICONS
-********************************************/
-.navbar-toggler {
-  border: none;
-  background-color: transparent;
-  padding: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-
-.navbar-toggler:hover,
-.navbar-toggler:focus {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Custom Hamburger / X Icon */
-.navbar-toggler-icon {
-  background-image: none !important;
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  position: relative;
-}
-
-/* Hamburger lines (collapsed state) */
-.navbar-toggler.collapsed .navbar-toggler-icon::before,
-.navbar-toggler.collapsed .navbar-toggler-icon::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background-color: #fff;
-  transition: transform 0.3s ease;
-}
-
-.navbar-toggler.collapsed .navbar-toggler-icon::before {
-  top: 6px;
-}
-
-.navbar-toggler.collapsed .navbar-toggler-icon::after {
-  top: 16px;
-}
-
-/* "X" Icon (expanded state) */
-.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before,
-.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background-color: #ffffff;
-
-  transition: transform 0.3s ease;
-}
-
-.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
-  transform: rotate(45deg);
-}
-
-.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
-  transform: rotate(-45deg);
-}
-
-/*******************************************
-  MOBILE VIEW: Dropdown Panel Under Navbar
-********************************************/
-@media (max-width: 991px) {
-  /* Position collapse panel below navbar */
-  .custom-navbar .container {
-    position: relative;
+   /* Base Navbar Styles */
+   .custom-navbar {
+    background-color: #000;
+    padding: 0.5rem 1rem;
   }
-  
-  .navbar-collapse {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    z-index: 1;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+  .custom-navbar .navbar-brand {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: #fff;
   }
-
-  .navbar-collapse.show {
-    max-height: 500px; /* Adjust this value based on content height */
-    opacity: 1;
+  .custom-navbar .navbar-brand img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    margin-right: 8px;
   }
-
-  /* Mobile nav links in column */
-  .navbar-nav {
-    padding: 1rem;
-    flex-direction: column;
+  .custom-navbar .navbar-nav .nav-link {
+    color: #ebebec;
+    margin: 2px 10px;
+    text-transform: capitalize;
+    transition: color 0.3s ease, background-color 0.3s ease;
   }
-
-  .navbar-nav .nav-item {
-    margin: 0.5rem 0;
-  }
-
-  .navbar-nav .nav-link {
-    color: #000 !important;
-    margin: 0;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #eee;
+  .custom-navbar .navbar-nav .nav-link:hover {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
-
-  .navbar-nav .nav-link:hover {
-    background-color: #f2f2f2;
-    color: #333 !important;
+  /* Mobile Menu Styles */
+  @media (max-width: 991px) {
+    /* Make the collapse panel full-width or customize as needed */
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 30%;
+      width: 65%;
+      background-color: #ffffff;
+      padding: 0.5rem;
+      z-index: 1050; /* Ensure it sits above content */
+    }
+    /* Mobile nav link styling */
+    .navbar-nav .nav-link {
+      background-color: #007bff;
+      color: #fff !important;
+      padding-left: 10px;
+      margin: 0.5rem 0;
+      border-bottom: 1px solid #000;
+      border-radius: 4px;
+    }
+    .navbar-nav .nav-link:hover {
+      background-color: #0056b3;
+    }
+    /* Mobile close button */
+    .mobile-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 2rem;
+      line-height: 1;
+      background: #ffffff00;
+      border: 2px  solid #e4ece3;
+      color: #000000;
+    }
   }
-
-  /* Right icons become black */
-  .navbar-nav i {
-    color: #000 !important;
-  }
-
-  /* Close button styling */
-  .close-collapse {
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    color: #000;
-    z-index: 1;
-  }
-}
-
 
   /* Hero section styling */
 /* Hero Section */
@@ -251,7 +143,7 @@
 /* Hero Content */
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 0;
   max-width: 600px;
   padding: 20px;
 }
@@ -270,10 +162,11 @@
 
 /* Button */
 .btn-hero {
-  background-color: transparent;
-  border: 2px solid #fff;
-  color: #fff;
+  background-color: #aaaaaa63;
+  border: 2px solid #ffffff;
+  color: #000000;
   padding: 12px 24px;
+  font-weight: bold;
   font-size: 1.1rem;
   transition: all 0.3s ease-in-out;
 }
@@ -285,13 +178,16 @@
 
 /* Carousel Controls */
 .carousel-control-prev, .carousel-control-next {
-  width: 5%;
+  width: 5%; 
+  padding-left: 5%;
+  padding-right: 5%;
+  
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(0, 0, 0);
   border-radius: 50%;
-  padding: 10px;
+  padding: 15px;
 }
 
 /* Animations */
@@ -313,9 +209,7 @@
 
 /* <!--     Features         Products    -->
 <!--     Features         Products    -->
-<!--     Features         Products    --> */
-
-
+/* <!--     Features         Products    --> */
 #featured-products h2 {
   font-size: 1.8rem;
   font-weight: bold;
@@ -342,6 +236,37 @@
 
 #featured-products strong {
   color: #222;
+}
+.card-img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img-container img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Initially show the default image and hide the hover image */
+.card-img-container .hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* On hover, fade in the hover image, fade out the default image, and scale the images */
+.card-img-container:hover .hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card-img-container:hover .default {
+  opacity: 0;
+  transform: scale(1.05);
 }
 
 
