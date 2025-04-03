@@ -75,12 +75,15 @@
   }
   .custom-navbar .navbar-nav .nav-link:hover {
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(3, 3, 3, 0.719);
     border-radius: 4px;
   }
   /* Mobile Menu Styles */
   @media (max-width: 991px) {
     /* Make the collapse panel full-width or customize as needed */
+    .custom-navbar {
+    background-color: #c5b8b8;
+    }
     .navbar-collapse {
       position: absolute;
       top: 100%;
