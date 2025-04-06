@@ -57,15 +57,45 @@ function updateMiniCartUI() {
   const miniCartTotal = document.getElementById('miniCartTotal');
   
   // Clear the current cart display
-  miniCartContent.innerHTML = '';
+miniCartContent.innerHTML = '';
 
-  // If cart is empty
-  if (cart.length === 0) {
-    miniCartContent.innerHTML = '<p>Your cart is empty.</p>';
-    miniCartTotal.textContent = '0.00';
-    updateCartBadge();
-    return;
-  }
+// If cart is empty
+if (cart.length === 0) {
+  const emptyContainer = document.createElement('div');
+  emptyContainer.classList.add('empty-cart-container');
+
+  // Display an illustration (update the src to your image or SVG)
+  const illustration = document.createElement('img');
+  illustration.src = 'assets/images/empty-cart.png'; // Replace with your actual image URL
+  illustration.alt = 'Empty Cart';
+  illustration.classList.add('empty-cart-illustration');
+  emptyContainer.appendChild(illustration);
+
+  // Add a friendly headline
+  const headline = document.createElement('h3');
+  headline.textContent = 'Your Cart is Empty!';
+  headline.classList.add('empty-cart-heading');
+  emptyContainer.appendChild(headline);
+
+  // Add a supportive message
+  const message = document.createElement('p');
+  message.textContent = "It looks like you haven't added any items yet. Let's change that!";
+  message.classList.add('empty-cart-text');
+  emptyContainer.appendChild(message);
+
+  // Add a call-to-action button
+  const shopButton = document.createElement('a');
+  shopButton.href = 'index.html'; // Update with your actual product page URL
+  shopButton.textContent = 'Browse Products';
+  shopButton.classList.add('empty-cart-button');
+  emptyContainer.appendChild(shopButton);
+
+  miniCartContent.appendChild(emptyContainer);
+  miniCartTotal.textContent = '0.00';
+  updateCartBadge();
+  return;
+}
+
 
   let total = 0;
 
@@ -173,3 +203,140 @@ function attachDeleteButtonEvents() {
     });
   });
 }
+
+
+
+
+
+///    Check   out   button  
+
+
+/*      
+        4. Process the Checkout   */
+
+// Example: Define shipping fee and tax percentage
+const SHIPPING_FEE = 200.00; // Rs 200.00
+const TAX_RATE = 0.15;       // 15% tax
+
+// Function to populate the checkout modal with cart items and update summary
+function populateCheckoutModal() {
+  const container = document.getElementById('checkoutItemsContainer');
+  container.innerHTML = ''; // Clear previous content
+  
+  let subtotal = 0;
+  let totalItems = 0;
+  
+  // Check if the cart is empty
+  if (cart.length === 0) {
+    container.innerHTML = '<p>Your cart is empty.</p>';
+    document.getElementById('itemCount').textContent = 0;
+    document.getElementById('subtotalAmount').textContent = 'Rs 0.00';
+    document.getElementById('shippingFee').textContent = 'Rs 0.00';
+    document.getElementById('totalAmount').textContent = 'Rs 0.00';
+    document.getElementById('taxInfo').textContent = 'Including Rs 0.00 in taxes';
+    return;
+  }
+  
+  cart.forEach(item => {
+    const lineTotal = item.price * item.quantity;
+    subtotal += lineTotal;
+    totalItems += item.quantity;
+    
+    // Create item block
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'd-flex align-items-center mb-3 border p-2 rounded';
+    
+    // Checkbox for selection
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'form-check-input me-2';
+    checkbox.checked = true;  // default selected
+    checkbox.setAttribute('data-id', item.id);
+    
+    // Product image
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.name;
+    img.style.width = '50px';
+    img.style.height = '50px';
+    img.style.objectFit = 'cover';
+    img.className = 'me-2';
+    
+    // Product details
+    const details = document.createElement('div');
+    details.innerHTML = `
+      <strong>${item.name}</strong><br>
+      Rs ${item.price.toFixed(2)} x ${item.quantity} 
+      <small>= Rs ${(lineTotal).toFixed(2)}</small>
+    `;
+    
+    itemDiv.appendChild(checkbox);
+    itemDiv.appendChild(img);
+    itemDiv.appendChild(details);
+    container.appendChild(itemDiv);
+  });
+  
+  // Calculate taxes and total
+  const taxAmount = subtotal * TAX_RATE;
+  const totalAmount = subtotal + SHIPPING_FEE + taxAmount;
+  
+  // Update summary fields
+  document.getElementById('itemCount').textContent = totalItems;
+  document.getElementById('subtotalAmount').textContent = `Rs ${subtotal.toFixed(2)}`;
+  document.getElementById('shippingFee').textContent = `Rs ${SHIPPING_FEE.toFixed(2)}`;
+  document.getElementById('totalAmount').textContent = `Rs ${totalAmount.toFixed(2)}`;
+  document.getElementById('taxInfo').textContent = `Including Rs ${taxAmount.toFixed(2)} in taxes`;
+}
+
+// Hook up the checkout modal population when the checkout button is clicked
+document.getElementById('checkOutButton').addEventListener('click', function() {
+  populateCheckoutModal();
+});
+
+
+
+  document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Gather form data
+    const contactInfo = document.getElementById('contactInfo').value.trim();
+    const country = document.getElementById('countrySelect').value;
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const apartment = document.getElementById('apartment').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const postalCode = document.getElementById('postalCode').value.trim();
+    const phoneNumber = document.getElementById('phoneNumber').value.trim();
+    const saveInfo = document.getElementById('saveInfo').checked;
+    
+    // Validate required fields (basic validation)
+    if (!contactInfo || !country || !firstName || !lastName || !address || !city || !postalCode || !phoneNumber) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Create an object with the form data
+    const customerData = {
+      contactInfo,
+      country,
+      firstName,
+      lastName,
+      address,
+      apartment,
+      city,
+      postalCode,
+      phoneNumber,
+      saveInfo
+    };
+
+    // For demonstration: Log the data and simulate order processing
+    console.log('Customer Data:', customerData);
+    alert('Order confirmed! Check the console for the submitted data.');
+
+    // Here, you can perform further actions such as sending the data to your server via AJAX,
+    // clearing the form, or closing the modal if applicable.
+    
+    // Reset the form (optional)
+    event.target.reset();
+  });
